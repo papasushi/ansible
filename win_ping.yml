@@ -1,4 +1,3 @@
----
 - hosts: all
   vars_prompt:
     - name: user
@@ -8,8 +7,9 @@
   vars:
     ansible_user: "{{user}}"
     ansible_password: "{{password}}"
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    ansible_winrm_server_cert_validation: ignore
+    ansible_connection: winrm
   tasks:
-  - name: run ping
-    ping:
+  - name: run win ping
+    win_ping:
     
