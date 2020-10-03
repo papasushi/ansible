@@ -21,6 +21,32 @@
         include_sub_features: yes
         state: present
 
+    - name: copy index.html
+      win_copy:
+        src: index.html
+        dest: c:\inetpub\wwwroot\index.html
+        force: yes
 
-    
+    - name: Create logs directory
+      win_file:
+        path: c:\logs
+        state: directory
+
+    - name: install net core iis hosting module with no framworks
+      win_chocolatey:
+        name: "dotnetcore-windowshosting"
+        version: "3.1.0"
+        install_args: "OPT_NO_RUNTIME=1 OPT_NO_SHAREDFX=1 OPT_NO_X86=1 OPT_NO_SHARED_CONFIG_CHECK=1"
+        state: present
+      notify: restart IIS
+
+    - name: make a directory
+      win_shell: '& {mkdir c:\ewenpa}'
+
+  handlers:
+    - name: restart IIS
+      win_shell: '& {iisreset}'
+
+
+
 
