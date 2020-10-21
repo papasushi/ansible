@@ -11,13 +11,13 @@
       name:
        - nginx
       state: latest
-     become: yes
+     become: yes # noqa 403
 
    - name: copy index.html
      copy:
        src: index.html
        dest: /usr/share/nginx/html/index.html
-     become: yes   
+     become: yes  # noqa 208
 
    - name: start nginx service
      service:
