@@ -1,14 +1,8 @@
 ---
-- hosts: all
-  vars_prompt:
-   - name: username
-     prompt: "Enter Local Username"
-     private: no
-   - name: password
-     prompt: "Enter password"
+- hosts: windows
+  gather_facts: false
+
   vars:
-    ansible_user: "{{username}}"
-    ansible_password: "{{password}}"
     ansible_connection: winrm
     ansible_winrm_transport: ntlm
     ansible_winrm_server_cert_validation: ignore
