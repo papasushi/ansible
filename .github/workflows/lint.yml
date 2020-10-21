@@ -1,5 +1,5 @@
 name: Ansible Lint
-on: [ppush, pull_request]
+on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -7,7 +7,7 @@ jobs:
     - name: checkout repo
       uses: action/checkout@v2
 
-    -name: Lint ansible Playbooks
-     uses: ansible/ansible-lint-action@master
-     with:
+    - name: Lint ansible Playbooks
+      uses: ansible/ansible-lint-action@master
+      with:
        targets: ""
