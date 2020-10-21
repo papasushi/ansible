@@ -1,0 +1,19 @@
+---
+  - hosts: localhost
+    gather_facts: false
+    connection: local
+
+    tasks:
+    - name: Power Off Windows server
+      azure_rm_virtualmachine:
+        resource_group: ansible
+        name: vm-winweb71
+        started: no
+    
+    - name: Power Off Linux server
+      azure_rm_virtualmachine:
+            resource_group: ansible
+            name: vm-linuxweb94
+            started: no
+
+

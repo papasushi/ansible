@@ -1,0 +1,17 @@
+---
+  - hosts: localhost
+    gather_facts: false
+    connection: local
+
+    tasks:
+    - name: Power On Windows server
+      azure_rm_virtualmachine:
+        resource_group: ansible
+        name: vm-winweb71
+        started: yes
+    
+    - name: Power On Linux server
+      azure_rm_virtualmachine:
+            resource_group: ansible
+            name: vm-linuxweb94
+            started: yes

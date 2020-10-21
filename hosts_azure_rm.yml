@@ -1,0 +1,15 @@
+plugin: azure_rm
+include_vm_resource_groups:
+  - ansible
+auth_source: auto
+plain_host_names: yes
+keyed_groups:
+  -  key: os_profile.system
+     separator: ""
+  -  key: tags.applicationRole | default('undefined_appRole')
+     separator: ""
+  -  key: tags.cluster | default('undefined_cluster')
+     separator: ""
+
+
+

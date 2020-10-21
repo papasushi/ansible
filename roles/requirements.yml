@@ -1,0 +1,4 @@
+- src: https://github.com/papasushi/chocolatey.git
+  scm: git
+  version: "v1.0"
+  name: chocolatey
